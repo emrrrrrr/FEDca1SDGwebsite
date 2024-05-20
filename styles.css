@@ -1,88 +1,183 @@
-/* Add smooth transitions */
+/* Start of CSS */
+head {
+    margin: 0;
+}
+
 body {
     transition: background-color 0.5s ease;
-    background-color: #c46969; /* background color or border color */
+    background-color: #c46969;
+    margin: 0;
+    padding: 0; /* Ensure no padding */
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
-/* header styles */
-header {
-    background-color: #6e0085; /* heading color */
-    color: #fff;
-    padding: 20px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 999;
-    text-align: center; /* Center the content */
+/* smooth scrolling */
+html {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0; /* Ensure no padding */
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
-header h1 {
-    margin-bottom: 20px; /* Add space below the header */
+/* Nav Bar */
+body nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 5%;
+    align-items: center;
+    background: #233c5b;
+    width: 93%; /* Ensure nav bar fits the screen width */
 }
 
-header nav ul {
-    list-style-type: none;
+.text {
+    color: #FFF;
+    font-size: 22px;
 }
 
-header nav ul li {
+.logo {
+    color: #FFF;
+    font-size: 22px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
     display: inline-block;
-    margin: 0 15px; /* Add space between the links */
 }
 
-header nav ul li a {
-    color: #fff;
+ul li a {
     text-decoration: none;
-    font-size: 20px; /* Increase the font size */
-    font-weight: bold; /* Make the font bold */
-    transition: color 0.3s ease;
+    color: #8291A5;
+    padding: 8px 40px;
+    border-radius: 15px;
+    transition: all .3s ease;
 }
 
-header nav ul li a:hover {
-    color: #ffd700; /* Gold color */
+ul li a:hover,
+ul li a.active {
+    color: #FFF;
+    background: #0075FF;
+}
+
+#icon {
+    background-color: #0075FF;
+    padding: 5px 7px 3px 7px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+#icon svg {
+    color: #FFF;
+    height: 28px;
+    transition: all .3s ease;
+}
+
+#icon:hover {
+    background: #FFF;
+}
+
+#icon:hover svg {
+    color: #0075FF;
+}
+
+#checkbox,
+#icon {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        border-bottom: 1px solid #455468;
+    }
+
+    ul {
+        position: absolute;
+        width: 100%;
+        height: calc(100vh - 71px);
+        background-color: #18283B;
+        left: 0;
+        top: 0;
+        text-align: center;
+        display: none;
+        margin-top: 71px;
+        padding: 0;
+    }
+
+    ul li {
+        display: block;
+        padding: 10px 15px;
+    }
+
+    ul li a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    #icon {
+        display: block;
+    }
+
+    #checkbox:checked~ul {
+        display: block;
+    }
 }
 
 /* Home section */
+/* Styles for home section */
 #home {
-    background-image: url('https://images.unsplash.com/photo-1466629437334-b4f6603563c5?q=80&w=2678&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Placeholder image */
-    background-size: cover;
-    background-position: fill;
-    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-carousel {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.home-carousel img {
+    min-width: 101%;
+    min-height: 100%;
+    object-fit: cover;
 }
 
 .home-content {
-    max-width: 600px;
-    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
 }
 
-#home h2 {
-    color: #ffffff;
-    font-size: 60px;
+.home-content h2 {
+    font-size: 4.5em;
     margin-bottom: 20px;
 }
 
-#home p {
-    color: #ffffff;
-    font-size: 24px;
+.home-content p {
+    font-size: 1.5em;
     margin-bottom: 40px;
 }
 
 .cta-button {
-    background-color: #ffd700; /* button color */
+    background-color: #ffd700;
     color: #333;
     padding: 15px 30px;
     border: none;
     border-radius: 5px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 1.2em;
     transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: #a78600; /* hover button color */
+    background-color: #a78600;
 }
 
 /* Footer */
@@ -91,69 +186,142 @@ footer {
     color: #fff;
     padding: 10px;
     text-align: center;
-    position: fixed;
     width: 100%;
     bottom: 0;
 }
 
-/* Examples section */
-#examples {
-    background-image: url('https://images.unsplash.com/photo-1498925008800-019c7d59d903?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Background image for the examples section */
-    background-size: cover; /* Cover the entire section */
-    background-position: center; /* Center the background image */
-    position: relative; /* Ensure the section is positioned relatively */
-    padding: 50px 20px; /* Add padding for better spacing */
-}
-
-/* Darken the background image slightly */
-#examples::before {
-    content: ""; /* Required for pseudo-elements */
-    position: absolute; /* Position the overlay absolutely within the section */
-    top: 0;
-    left: 0;
-    width: 100%; /* Cover the entire width of the section */
-    height: 100%; /* Cover the entire height of the section */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-    z-index: 1; /* Ensure the overlay is above the background image */
-}
-
-/* Style the text within the examples section */
-#examples h2,
-#examples p {
-    position: relative; /* Ensure the text is positioned relatively */
-    z-index: 2; /* Ensure the text is above the overlay */
-    color: white; /* Set text color to white */
-}
-
-/* Adjust text font and size */
-.examples-text {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Use a nicer font */
-    font-size: 18px; /* Increase text size */
-    line-height: 1.6; /* Add line-height for better readability */
-}
-
-/* Styles for images and text in examples */
-.example {
+/* General CSS for content */
+.content {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
     padding: 20px;
-    border-radius: 10px; /* Optional: rounded corners */
+    border-radius: 10px;
+    max-width: 100%; /* Ensure content doesn't exceed viewport width */
 }
 
-.example-image {
-    width: 100px; /* Ensure the image has equal width and height */
-    height: 100px; /* Ensure the image has equal width and height */
-    border-radius: 50%; /* Make the image a circle */
-    margin-right: 20px;
-    object-fit: cover; /* Ensure the image covers the space without stretching */
-    filter: brightness(1)
-}
-
-.example-text {
-    flex: 1; /* Take up the remaining space */
+.content-image {
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    width: 13%;
     display: flex;
-    align-items: center; /* Center the text vertically */
-    font-size: 1.2em; /* Make the font size more appealing */
-    line-height: 1.5
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-right: 25px;
+}
+
+.content-image img {
+    width: 170%;
+    height: 170%;
+}
+
+.content-text {
+    font-family: Helvetica, Arial, sans-serif;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    font-size: 1.38em;
+    color: #ffffff;
+    line-height: 1.5;
+    padding-left: 10px;
+}
+
+/* When on Mobile */
+@media screen and (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .content .content-text {
+        text-align: center;
+    }
+
+    .home-content {
+        top: 40%;
+    }
+}
+
+/* Specific Styles for Content */
+#content1 {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1498925008800-019c7d59d903?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    padding: 1px;
+    background-position: center;
+    position: relative;
+}
+#content2 {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://plus.unsplash.com/premium_photo-1661911298279-981ba88fdd4f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');    
+    background-size: cover;
+    padding: 1px;
+    background-position: center;
+    position: relative;
+}
+#content2 .content .content-image img {
+    width: 140%;
+    height: 140%;
+}
+#content3 {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1613792962823-946490e6fbd7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    padding: 1px;
+    background-position: center;
+    position: relative;
+}
+#content3 .content .content-image img {
+    width: 130%;
+    height: 130%;
+}
+#content4 {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1593941707874-ef25b8b4a92b?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    padding: 1px;
+    background-position: center;
+    position: relative;
+}
+#content4 .content .content-image img {
+    width: 101%;
+    height: 101%;
+}
+
+/* Additional Examples Section */
+#more-examples {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    text-align: center;
+}
+
+#more-examples h2 {
+    color: #8d8d8d;
+    font-size: 30px;
+}
+
+#more-examples p {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+#more-examples a {
+    color: #0075FF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#more-examples a:hover {
+    color: #004891;
+}
+
+/* Additional Examples Section */
+.background-section {
+    position: relative;
+    background-image: url('https://images.unsplash.com/photo-1599689018459-fcf807a9eceb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+}
+
+blockquote {
+    font-style: italic;
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #fff;
 }
